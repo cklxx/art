@@ -33,6 +33,18 @@ Copy `.env.example` to `.env` and set `GOOGLE_API_KEY` to use Gemini for analysi
 ## Scripts
 - `scripts/setup.sh` — installs Python (uv sync) and frontend dependencies (bun install).
 - `scripts/dev.sh` — starts uvicorn for the API and Bun dev server in the background, with basic log output.
+- `scripts/deploy-cloud-run.sh` — builds and deploys the API to Cloud Run using `gcloud builds submit` and `gcloud run deploy`. It reads `.env` for API keys and forwards them as service env vars.
+
+### Cloud Run deploy (one command)
+```bash
+# Ensure gcloud is installed and you have set PROJECT_ID (or configured gcloud default project)
+PROJECT_ID=my-gcp-project \
+SERVICE_NAME=alex-agent-api \
+REGION=us-central1 \
+bash scripts/deploy-cloud-run.sh
+```
+
+The script builds the Docker image from the repo, uploads via Cloud Build, and deploys to Cloud Run with reasonable defaults (1Gi memory, 0-3 instances, unauthenticated). `.env` values like `GOOGLE_API_KEY` are forwarded automatically as `--set-env-vars`.
 
 ## Backend entrypoints
 - `alex_agent.infra.server:create_app` exposes the FastAPI app. Run with:
