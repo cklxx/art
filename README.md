@@ -50,7 +50,8 @@ Copy `.env.example` to `.env` and set `GOOGLE_API_KEY` to use Gemini for analysi
 
 ## Frontend entrypoints
 - `bun dev` serves the React app with hot reload.
-- `bun test` is ready for future tests (currently placeholder).
+- `bun test` runs unit tests (Vitest).
+- `bun run e2e` runs Playwright E2E tests. Install browsers once via `bunx playwright install --with-deps chromium`.
 
 ## Notes
 - Supabase integration can be wired through `infra/store.py` or dedicated adapters; the core remains storage-agnostic.

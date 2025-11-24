@@ -5,7 +5,7 @@ import typer
 from ..core.state import AgentState
 from ..core.loop import run_loop
 from ..core.agent import BaseLLMAgent
-from ..llm.judge_models import EchoJudge
+from ..eval.judge_models import EchoJudge
 from ..eval.reward import RewardEvaluator
 
 app = typer.Typer(help="Run demo agent tasks from the CLI")

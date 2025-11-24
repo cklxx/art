@@ -1,10 +1,11 @@
 """FastAPI server exposing the agent loop and paper review helpers."""
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from ..core.loop import run_loop
 from ..core.state import AgentState
 from ..core.agent import BaseLLMAgent
-from ..llm.judge_models import EchoJudge
+from ..eval.judge_models import EchoJudge
 from ..apps.paper_review import (
     ImageBatchRequest,
     ImageBatchResponse,
@@ -15,6 +16,14 @@ from ..apps.paper_review import (
 )
 
 app = FastAPI(title="alex-agent API", version="0.1.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 def create_agent() -> BaseLLMAgent:

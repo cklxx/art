@@ -104,7 +104,7 @@ export function App() {
   };
 
   return (
-    <main className="page">
+    <main className="page" data-testid="app-root">
       <header>
         <div>
           <p className="eyebrow">Paper → Analysis → Image Review</p>
@@ -124,7 +124,12 @@ export function App() {
             <h2>Provide a paper</h2>
             <p className="muted">Title + abstract (URL optional). Google models are used by default.</p>
           </div>
-          <button className="primary" onClick={analyzePaper} disabled={analysisDisabled || running === "analyze"}>
+          <button
+            className="primary"
+            data-testid="analyze-button"
+            onClick={analyzePaper}
+            disabled={analysisDisabled || running === "analyze"}
+          >
             {running === "analyze" ? "Analyzing..." : "Analyze for visuals"}
           </button>
         </div>
@@ -164,7 +169,9 @@ export function App() {
             </div>
             <span className="pill">Style: {analysis.recommended_style}</span>
           </div>
-          <div className="summary">{analysis.summary}</div>
+          <div className="summary" data-testid="analysis-summary">
+            {analysis.summary}
+          </div>
           <div className="list-grid">
             {analysis.key_points.map((point, idx) => (
               <div key={idx} className="list-item">
@@ -186,16 +193,22 @@ export function App() {
             </div>
             <div className="actions">
               <button className="ghost" onClick={addPrompt}>+ Add prompt</button>
-              <button className="primary" onClick={() => triggerImages()}>Generate all</button>
+              <button className="primary" data-testid="generate-all" onClick={() => triggerImages()}>
+                Generate all
+              </button>
             </div>
           </div>
 
           <div className="prompts">
             {prompts.map((row) => (
-              <div key={row.id} className="prompt-card">
+              <div key={row.id} className="prompt-card" data-testid="prompt-card">
                 <div className="prompt-header">
                   <strong>{row.id}</strong>
-                  <button className="ghost" onClick={() => triggerImages([row])}>
+                  <button
+                    className="ghost"
+                    data-testid="regenerate-button"
+                    onClick={() => triggerImages([row])}
+                  >
                     {row.status === "running" ? "Generating..." : "Regenerate"}
                   </button>
                 </div>
@@ -218,7 +231,7 @@ export function App() {
                   }
                 />
                 {row.imageUrl && (
-                  <div className="image-preview">
+                  <div className="image-preview" data-testid="image-preview">
                     <img src={row.imageUrl} alt={row.prompt} />
                     <p className="muted">{row.note || "Generated"}</p>
                   </div>

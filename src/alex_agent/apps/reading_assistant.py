@@ -2,7 +2,7 @@
 from ..core.agent import BaseLLMAgent
 from ..core.loop import run_loop
 from ..core.state import AgentState
-from ..llm.judge_models import EchoJudge
+from ..eval.judge_models import EchoJudge
 
 
 def summarize_document(task_id: str, document: str) -> AgentState:
