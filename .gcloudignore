@@ -1,0 +1,19 @@
+# This file is used by gcloud to determine which files and directories to ignore when uploading source
+# The entries are similar to .gitignore patterns.
+
+.gcloudignore
+.git
+.gitignore
+__pycache__/
+*.pyc
+.venv/
+.env
+uv.lock
+*.log
+node_modules/
+frontend/node_modules
+frontend/dist
+frontend/test-results
+frontend/playwright-report
+bun.lockb
+*.swp
