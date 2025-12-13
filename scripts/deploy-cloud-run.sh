@@ -2,7 +2,7 @@
 set -euo pipefail
 
 PROJECT_ID=${PROJECT_ID:-$(gcloud config get-value project 2>/dev/null || true)}
-SERVICE_NAME=${SERVICE_NAME:-alex-agent-api}
+SERVICE_NAME=${SERVICE_NAME:-agent-api}
 REGION=${REGION:-us-central1}
 IMAGE=${IMAGE:-gcr.io/${PROJECT_ID}/${SERVICE_NAME}}
 

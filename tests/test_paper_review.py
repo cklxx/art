@@ -1,11 +1,11 @@
-from alex_agent.apps.paper_review import (
+from agent.apps.paper_review import (
     ImageBatchRequest,
     ImagePrompt,
     PaperAnalysisRequest,
     analyze_paper,
     generate_review_images,
 )
-from alex_agent.llm.google_client import GoogleGenerativeClient
+from agent.llm.google_client import GoogleGenerativeClient
 
 
 def test_analyze_paper_builds_prompts():

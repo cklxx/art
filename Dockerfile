@@ -21,4 +21,4 @@ RUN pip install --upgrade pip && pip install .
 EXPOSE 8080
 ENV PORT=8080
 
-CMD ["sh", "-c", "uvicorn alex_agent.infra.server:app --host 0.0.0.0 --port ${PORT:-8080}"]
+CMD ["sh", "-c", "uvicorn agent.infra.server:app --host 0.0.0.0 --port ${PORT:-8080}"]

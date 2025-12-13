@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "alex-agent-frontend",
+      "name": "agent-frontend",
       "dependencies": {
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
