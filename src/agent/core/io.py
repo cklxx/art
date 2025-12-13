@@ -1,7 +1,7 @@
 """Multimodal I/O schemas for consistent ingestion across text, images, and audio."""
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import UTC, datetime
 from typing import Dict, List, Literal, Optional
 
 from pydantic import BaseModel, HttpUrl, field_validator
@@ -41,7 +41,7 @@ class AudioDocument(BaseModel):
 class IngestionEnvelope(BaseModel):
     """Batch of multimodal documents to process together."""
 
-    created_at: datetime = datetime.utcnow()
+    created_at: datetime = datetime.now(UTC)
     texts: List[TextDocument] = []
     images: List[ImageDocument] = []
     audio: List[AudioDocument] = []
@@ -78,7 +78,7 @@ class KnowledgeBundle(BaseModel):
     """Aggregated knowledge artifacts for a whole ingestion batch."""
 
     slices: List[KnowledgeSlice]
-    generated_at: datetime = datetime.utcnow()
+    generated_at: datetime = datetime.now(UTC)
     trace_id: Optional[str] = None
 
     def tag(self, *tags: str) -> "KnowledgeBundle":
