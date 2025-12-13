@@ -59,6 +59,78 @@ header h1 {
   box-shadow: 0 12px 24px rgba(12, 25, 68, 0.06);
 }
 
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.meta-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  background: #f8fafc;
+  min-height: 160px;
+}
+
+.meta-card ul {
+  padding-left: 16px;
+  margin: 8px 0 0;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.adapter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 12px;
+}
+
+.adapter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.spec-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fbfdff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spec-card ul {
+  padding-left: 18px;
+  margin: 0;
+  color: #0f172a;
+}
+
+.spec-card code {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.spec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
 .panel-header {
   display: flex;
   justify-content: space-between;
@@ -156,6 +228,29 @@ button {
   padding: 12px;
 }
 
+.status {
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.status-available {
+  background: #ecfdf3;
+  color: #166534;
+}
+
+.status-stubbed {
+  background: #fffbeb;
+  color: #92400e;
+}
+
+.status-planned,
+.status-experimental {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
 .actions {
   display: flex;
   gap: 8px;
@@ -166,6 +261,77 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 12px;
   margin-top: 16px;
+}
+
+.observability {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.trace-panel {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  background: #f8fafc;
+}
+
+.timeline-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.benchmark-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.timeline-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.trace-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trace-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
 }
 
 .prompt-card {

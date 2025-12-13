@@ -1,4 +1,4 @@
-"""alex_agent package: framework-agnostic agent OS scaffold."""
+"""agent package: framework-agnostic agent OS scaffold."""
 
 __all__ = [
     "core",
